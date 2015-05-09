@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>files</title>
+</head>
+<body>
+<ul id="navigation">
+{% for f in files %}
+<li>{{ f }} <a href="/gmaphtml/{{ f }}">map</a>, <a href="/file/{{ f }}">json</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>
