@@ -1,18 +1,17 @@
-FROM python:2.7
-MAINTAINER Pasi Lammi <pasi.lammi@iki.fi>
-ENV PYTHONUNBUFFERED 1
+FROM alpine:latest
+MAINTAINER pasi@lammi.eu
 
-RUN apt-get update
-RUN apt-get -y install python git
+RUN apk add --update py-pip curl py-jinja2 git
 RUN mkdir -p /app /app/data
 WORKDIR /app
 RUN git clone https://github.com/dtcooper/python-fitparse.git
-RUN pip install web.py Jinja2
+RUN pip install web.py
 
 RUN mv python-fitparse/fitparse /app
 RUN rm -rf webpy python-fitparse
 ADD web /app
 
-ENTRYPOINT ["/usr/local/bin/python", "ui.py"]
+ENTRYPOINT ["/usr/bin/python", "ui.py"]
 EXPOSE 8080
 VOLUME ["/app/data"]
+
