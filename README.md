@@ -10,7 +10,7 @@ docker build -t pashi/garmin-fit-ui .
 
 Run docker
 ----------
-docker run -i --rm -v /opt/garmin/fitfiles:/app/data -p 8080:8080 -t pashi/garmin-fit-ui
+docker run -i --rm -e GOOGLE_API_KEY=api_key-here -v /opt/garmin/fitfiles:/app/data -p 8080:8080 -t pashi/garmin-fit-ui
 
 where /opt/garmin/fitfiles is location of your fit files
 

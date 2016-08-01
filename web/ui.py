@@ -148,7 +148,7 @@ class gmaphtml:
             points.append(js)
 
         data = {'gmap_start_point_lat': d[0], 'gmap_start_point_lng': d[
-            1], 'filename': '/gmap/%s' % filename, 'data': string.join(points, ',')}
+            1], 'filename': '/gmap/%s' % filename, 'data': string.join(points, ','), 'google_api_key': os.environ['GOOGLE_API_KEY']}
         return t % data
 
 
